@@ -110,7 +110,7 @@ function [x1,f1,g1,adapt_dat] = de_reproduct(fun,x0,f0,g0,ppareto,fpareto,gparet
     %Generate crossover ratio
     cr_ind=ceil(adapt_dat.mem_size*rand(1,nsol));
     cr_mid=adapt_dat.mem_cr(cr_ind);
-    cr=xnormrnd(cr_mid, 0.1);
+    cr=cr_mid+0.1*randn(size(cr_mid));
     cr=max(0,min(1,cr));
     adapt_dat.cr=cr;
     
